@@ -1,3 +1,4 @@
+# this runs the app
 #!/usr/bin/env python
 import os
 import sys
