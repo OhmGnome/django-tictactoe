@@ -1,5 +1,10 @@
+<!-- {%%} - execute a template tag likie JSP JSTL -->
+<!-- {{}} - bound data -->
+
+<!-- extends - import all HTML from the parent template, must be first -->
 {% extends "base.html" %}
 
+<!-- block - replaces the content of the block with the same name in the parent -->
 {% block title %}
     Home: {{ user.username }}
 {% endblock %}
