@@ -1,12 +1,3 @@
-# The persisted objects that generate migrations
-# Migration helps keep local dev and environment databases in sync (like java hibernate)
-# by generating SQLs
-# from the terminal: python manage.py has migration commands:
-# migrate - is responsible for applying and unapplying migrations.
-# makemigrations - is responsible for creating new migrations based on the changes you have made to your models.
-# sqlmigrate - displays the SQL statements for a migration.
-# showmigrations - lists a project’s migrations and their status.
-
 from __future__ import unicode_literals
 from django.utils.encoding import python_2_unicode_compatible
 from django.db import models
@@ -45,10 +36,6 @@ class Game(models.Model):
     start_time = models.DateTimeField(auto_now_add=True)
     last_active = models.DateTimeField(auto_now=True)
 
-    # Django fields are not null by default
-    # the "default" keyword is used to add populated rows to a table
-    # default='F' - GAME_STATUS_CHOICES.F
-    # choices - Django admin will show a dropdown for the possible game statuses
     status = models.CharField(max_length=1, default='F',
                               choices=GAME_STATUS_CHOICES)
 
