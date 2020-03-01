@@ -1,4 +1,4 @@
-# this runs the app
+# this runs the app: python manage.py startapp player
 #!/usr/bin/env python
 import os
 import sys
