@@ -7,6 +7,8 @@ from .models import Invitation
 from gameplay.models import Game
 
 
+# Login_required - URL is only available to authenticated users
+# Set LOGIN_URL and LOGIN_REDIRECT_URL in settings.py
 @login_required()
 def home(request):
     my_games = Game.objects.games_for_user(request.user)
@@ -20,13 +22,15 @@ def home(request):
 @login_required()
 def new_invitation(request):
     if request.method == "POST":
+        # create an instance of the form so that it will have a pre-populated user field
         invitation = Invitation(from_user=request.user)
         form = InvitationForm(instance=invitation, data=request.POST)
         if form.is_valid():
             form.save()
             return redirect('player_home')
-    else:
+    else: # if GET request show an empty form
         form = InvitationForm()
+    # pass the empty or invalid form to the template
     return render(request, "player/new_invitation_form.html", {'form': form})
 
 
