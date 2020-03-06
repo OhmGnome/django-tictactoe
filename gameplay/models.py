@@ -81,7 +81,9 @@ class Game(models.Model):
             return 'D'
         return 'S' if self.status == 'F' else 'F'
 
+    # get_absolute_url creates a URL from a model instance
     def get_absolute_url(self):
+        # gets the URL for a view
         return reverse('gameplay_detail', args=[self.id])
 
     def __str__(self):
