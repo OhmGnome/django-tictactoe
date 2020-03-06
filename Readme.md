@@ -1,0 +1,1 @@
+The purpose of this repo is to follow along the training material and make note of concepts that are new to me or specific to Django.
